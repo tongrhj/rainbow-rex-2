@@ -1,0 +1,31 @@
+@import '../variables';
+
+.button {
+  font-size: 15px;
+  font-weight: 300;
+  text-decoration: none;
+  text-align: center;
+  border: 0;
+  border-radius: 5px;
+  padding: 15px 20px;
+  margin: 30px 15px;
+  outline: none;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  &:hover {
+    opacity: .8;
+  }
+}
+
+.button:disabled {
+  opacity: .5;
+}
+
+.primary {
+  @extend .button;
+  color: $button-color;
+  background-color: $button-background;
+  box-shadow: 0 4px 0 0 $button-shadow;
+}
