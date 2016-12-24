@@ -1,0 +1,31 @@
+@import '../variables';
+
+.card {
+  position: relative;
+  opacity: .9;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  background-color: $question-background;
+  box-shadow: 0 10px 15px 0 $question-shadow;
+  margin-bottom: 15px;
+  min-width: 250px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: $question-text;
+}
+
+.highlight {
+  color: $white;
+}
+
+.red { color: $red; }
+.green { color: $green; }
+.blue { color: $blue; }
+.yellow { color: $yellow; }
+.purple { color: $purple; }
+.pink { color: $pink; }
+.orange { color: $orange; }

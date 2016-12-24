@@ -40,8 +40,8 @@
     "webpack-dev-server": "1.16.2"
   },
   "keywords": [
-    "boilerplate",
+    "game",
     "react",
-    "starter-kit"
+    "weedle-boilerplate"
   ]
 }

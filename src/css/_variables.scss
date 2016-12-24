@@ -1,6 +1,28 @@
-$white: #ffffff;
+$white: #f1f4ff;
 $black: #000000;
 
-$button-color: $white;
-$button-background: #20a881;
-$button-shadow: #0d684e;
+$shadow-1: rgba($black, .1);
+$shadow-4: rgba($black, .4);
+
+$grey-1: #565a66;
+$grey-2: #383b4a;
+$grey-3: #1b1d27;
+
+$red: #FD1F2F;
+$red-2: #B9000E;
+$green: #1bdd70;
+$green-2: #009A43;
+$blue: #3266E9;
+$blue-2: #0835A5;
+$yellow: #FFE21F;
+$yellow-2: #A28D00;
+$purple: purple;
+$pink: pink;
+$orange: orange;
+
+$countdown-background: $green;
+$countdown-shadow: $shadow-1;
+
+$question-text: $grey-1;
+$question-background: $grey-3;
+$question-shadow: $shadow-4;
