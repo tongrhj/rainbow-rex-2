@@ -1,4 +1,5 @@
 @import '../variables';
+@import url('https://fonts.googleapis.com/css?family=Rancho:400');
 
 .card {
   position: relative;
@@ -8,7 +9,7 @@
   background-color: $question-background;
   box-shadow: 0 10px 15px 0 $question-shadow;
   margin-bottom: 15px;
-  min-width: 250px;
+  min-width: 200px;
   min-height: 150px;
   display: flex;
   flex-direction: column;
@@ -19,7 +20,24 @@
 }
 
 .highlight {
-  color: $white;
+  color: $question-highlight;
+  position: absolute;
+  left: 20px;
+  text-transform: uppercase;
+}
+
+.highlightAlt {
+  color: $question-highlight-alt;
+  position: absolute;
+  right: 20px;
+  text-transform: uppercase;
+}
+
+.question {
+  position: relative;
+  font-family: 'Rancho', serif;
+  font-size: 4rem;
+  margin: 0;
 }
 
 .red { color: $red; }

@@ -4,6 +4,10 @@ $black: #000000;
 $shadow-1: rgba($black, .1);
 $shadow-4: rgba($black, .4);
 
+$light-grey: #f1f4ff;
+$light-grey-2: #e2e6f6;
+
+$grey: #383b4a;
 $grey-1: #565a66;
 $grey-2: #383b4a;
 $grey-3: #1b1d27;
@@ -12,7 +16,7 @@ $red: #FD1F2F;
 $red-2: #B9000E;
 $green: #1bdd70;
 $green-2: #009A43;
-$blue: #3266E9;
+$blue: #2d82e8;
 $blue-2: #0835A5;
 $yellow: #FFE21F;
 $yellow-2: #A28D00;
@@ -20,8 +24,18 @@ $purple: purple;
 $pink: pink;
 $orange: orange;
 
+$body-background: $grey;
+$body-text: $light-grey-2;
+
+$primary-button-background: $green;
+$primary-button-text: $white;
+$primary-button-box-shadow: $green-2;
+
 $countdown-background: $green;
 $countdown-shadow: $shadow-1;
+
+$question-highlight: $light-grey;
+$question-highlight-alt: $light-grey;
 
 $question-text: $grey-1;
 $question-background: $grey-3;

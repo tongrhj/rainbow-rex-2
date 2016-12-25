@@ -6,56 +6,62 @@ class Question extends Component {
   constructor (props) {
     super(props)
 
-    const startTime = Date.now() + props.totalTime
-    this.state = { startTime }
-    this.state.timeleft = this.timeleft()
+    this.state = {
+      timeleft: 10000,
+      addTime: props.addTime,
+      addedTime: 0
+    }
+    this.timeout = {}
   }
 
-  timeleft () {
-    return this.state.startTime - Date.now()
+  componentDidUpdate () {
+    const { addTime, onTimeout } = this.props
+    if (this.state.addTime !== addTime) {
+      this.setState({
+        addTime,
+        timeleft: this.state.timeleft + addTime
+      })
+    }
+    if (this.timeleft() <= 0) {
+      onTimeout()
+    }
   }
 
   componentDidMount () {
-    const { onTimeout, totalTime } = this.props
-
-    const to = this.timeout = {}
-    to.action = setTimeout(() => {
-      onTimeout()
-    }, totalTime)
-
     const loop = () => {
-      let timeleft = this.timeleft()
-      if (timeleft < 0) timeleft = 0
-      this.setState({ timeleft })
-      if (!timeleft) return
-      to.count = setTimeout(loop, 100)
+      if (this.timeleft() <= 0) return
+      this.setState({ timeleft: this.state.timeleft - 100 })
+      this.timeout.countdown = setTimeout(loop, 100)
     }
     loop()
   }
 
   componentWillUnmount () {
-    clearTimeout(this.timeout.action)
-    clearTimeout(this.timeout.count)
+    clearTimeout(this.timeout.countdown)
+  }
+
+  timeleft () {
+    return this.state.timeleft
   }
 
   render () {
-    const { word, colour, readColourRound, totalTime } = this.props
+    const { word, colour, readColourRound } = this.props
     return (
       <section className={questionCss.card}>
-        <p>
-          What colour do you <b className={questionCss.highlight}>
-            {readColourRound ? 'read' : 'see'}
-          </b>?
-        </p>
-        <Countdown timeLeft={this.state.timeleft} totalTime={totalTime} />
-        <h2 className={questionCss[colour]}>{ word }</h2>
+        { this.props.addTime }{ this.state.timeleft }
+        {readColourRound ?
+          (<span className={questionCss.highlight}>📖 read</span>) :
+          (<span className={questionCss.highlightAlt}>see 👀</span>)}
+        <Countdown timeLeft={this.state.timeleft} totalTime={10000} />
+        <h2 className={`${questionCss[colour]} ${questionCss.question}`}>{ word }</h2>
       </section>
     )
   }
 }
 
 Question.defaultProps = {
-  totalTime: 100000
+  totalTime: 0,
+  addTime: 0
 }
 
 export default Question
