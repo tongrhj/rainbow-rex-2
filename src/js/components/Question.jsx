@@ -7,7 +7,7 @@ class Question extends Component {
     super(props)
 
     this.state = {
-      timeleft: 10000,
+      timeLeft: props.totalTime,
       addTime: props.addTime,
       addedTime: 0
     }
@@ -17,42 +17,38 @@ class Question extends Component {
   componentDidUpdate () {
     const { addTime, onTimeout } = this.props
     if (this.state.addTime !== addTime) {
+      let cappedTime = Math.min(Question.defaultProps.totalTime, this.state.timeLeft + addTime)
       this.setState({
         addTime,
-        timeleft: this.state.timeleft + addTime
+        timeLeft: cappedTime
       })
     }
-    if (this.timeleft() <= 0) {
+    if (this.state.timeLeft <= 0) {
       onTimeout()
     }
   }
 
   componentDidMount () {
     const loop = () => {
-      if (this.timeleft() <= 0) return
-      this.setState({ timeleft: this.state.timeleft - 100 })
-      this.timeout.countdown = setTimeout(loop, 100)
+      if (this.state.timeLeft <= 0) return
+      this.setState({ timeLeft: this.state.timeLeft - 100 })
+      this.timeout = setTimeout(loop, 100)
     }
     loop()
   }
 
   componentWillUnmount () {
-    clearTimeout(this.timeout.countdown)
-  }
-
-  timeleft () {
-    return this.state.timeleft
+    clearTimeout(this.timeout)
   }
 
   render () {
-    const { word, colour, readColourRound } = this.props
+    const { word, colour, readColourRound, totalTime } = this.props
     return (
       <section className={questionCss.card}>
-        { this.props.addTime }{ this.state.timeleft }
         {readColourRound ?
           (<span className={questionCss.highlight}>📖 read</span>) :
           (<span className={questionCss.highlightAlt}>see 👀</span>)}
-        <Countdown timeLeft={this.state.timeleft} totalTime={10000} />
+        <Countdown timeLeft={this.state.timeLeft} totalTime={totalTime} />
         <h2 className={`${questionCss[colour]} ${questionCss.question}`}>{ word }</h2>
       </section>
     )
@@ -60,7 +56,7 @@ class Question extends Component {
 }
 
 Question.defaultProps = {
-  totalTime: 0,
+  totalTime: 10000,
   addTime: 0
 }
 

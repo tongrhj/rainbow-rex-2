@@ -29,8 +29,8 @@ export default class App extends Component {
     this.onNewGame = this.onNewGame.bind(this)
   }
 
-  randomN (maxN) {
-    return Math.floor(maxN * Math.random())
+  randomN (max, min = 0) {
+    return Math.floor(Math.random() * (max-min) + min)
   }
 
   componentDidMount () {
@@ -40,7 +40,7 @@ export default class App extends Component {
   setRound (previousWord) {
     // Determine Round Modes: read/see? + normal/rainbow?
     this.setState({
-      readColourRound: !(this.state.score > 5 && !this.randomN(2 + 10/this.state.score))
+      readColourRound: !(this.state.score > 5 && !this.randomN(2 + 10/this.state.score)),
     })
 
     // Set Question
@@ -61,9 +61,11 @@ export default class App extends Component {
     const answer = this.state.readColourRound ?
       this.state.question.word : this.state.question.colour
     if (e.target.value === answer) {
-      this.setState({ score: this.state.score + 1 })
+      this.setState({
+        score: this.state.score + 1,
+        addTime: this.randomN(2000 + 5 * this.state.score, 1000)
+      })
       this.setRound(this.state.question.word)
-      this.setState({ addTime: this.randomN(1000) })
     } else {
       this.setState({ optionClicked: e.target.value, correctAnswer: answer })
       this.setState({ gameState: 'ended' })
