@@ -64,22 +64,28 @@ export default class App extends Component {
       this.setState({
         score: this.state.score + 1,
         addTime: this.randomN(2000 + 5 * this.state.score, 1000)
-      })
-      this.setRound(this.state.question.word)
+      }, this.setRound(this.state.question.word))
     } else {
-      this.setState({ optionClicked: e.target.value, correctAnswer: answer })
-      this.setState({ gameState: 'ended' })
+      this.setState({
+        optionClicked: e.target.value,
+        correctAnswer: answer,
+        gameState: 'ended'
+      })
     }
   }
 
   onTimeout () {
-    this.setState({ gameState: 'ended' })
-    this.setState({ outOfTime: true })
+    this.setState({
+      gameState: 'ended',
+      outOfTime: true
+    })
   }
 
   onNewGame () {
-    this.setState(this.savedState)
-    this.setRound()
+    this.setState(
+      this.savedState,
+      this.setRound()
+    )
   }
 
   render () {
@@ -102,8 +108,8 @@ export default class App extends Component {
                 {this.state.options.map(option => {
                   return (
                     <button
-                      value={ option }
-                      key={ option }
+                      value={option}
+                      key={option}
                       onClick={e => this.onButtonClick(e)}
                       className={buttonCss[option]}
                     />

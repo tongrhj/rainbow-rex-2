@@ -49,7 +49,7 @@ class Question extends Component {
           (<span className={questionCss.highlight}>📖 read</span>) :
           (<span className={questionCss.highlightAlt}>see 👀</span>)}
         <Countdown timeLeft={this.state.timeLeft} totalTime={totalTime} />
-        <h2 className={`${questionCss[colour]} ${questionCss.question}`}>{ word }</h2>
+        <h2 className={`${questionCss[colour]} ${questionCss.question}`}>{word}</h2>
       </section>
     )
   }
