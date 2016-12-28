@@ -54,7 +54,7 @@ module.exports = {
   },
   module: {
     preLoaders: [
-      { test: /\.js$/,
+      { test: /\.jsx?$/,
         loader: 'standard',
         exclude: /node_modules/
       }

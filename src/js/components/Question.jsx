@@ -45,9 +45,9 @@ class Question extends Component {
     const { word, colour, readColourRound, totalTime } = this.props
     return (
       <section className={questionCss.card}>
-        {readColourRound ?
-          (<span className={questionCss.highlight}>📖 read</span>) :
-          (<span className={questionCss.highlightAlt}>see 👀</span>)}
+        {readColourRound
+          ? (<span className={questionCss.highlight}>📖 read</span>)
+          : (<span className={questionCss.highlightAlt}>see 👀</span>)}
         <Countdown timeLeft={this.state.timeLeft} totalTime={totalTime} />
         <h2 className={`${questionCss[colour]} ${questionCss.question}`}>{word}</h2>
       </section>
