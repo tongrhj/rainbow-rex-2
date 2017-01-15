@@ -37,18 +37,17 @@ export default class App extends Component {
     this.setRound()
   }
 
-  setRound (previousWord) {
-    // Determine Round Modes: read/see? + normal/rainbow?
-    this.setState({
-      readColourRound: !(this.state.score > 5 && !this.randomN(2 + 10 / this.state.score))
-    })
+  componentDidUpdate () {
+    if (this.state.question.word === this.savedState.question.word) this.setRound()
+  }
 
-    // Set Question
+  setRound (previousWord) {
     const decoyList = this.state.options
     const decoy = decoyList[this.randomN(decoyList.length)]
     const answerList = decoyList.filter(colour => colour !== previousWord && colour !== decoy)
     const answer = answerList[this.randomN(answerList.length)]
     this.setState({
+      readColourRound: !(this.state.score > 5 && !this.randomN(2 + 10 / this.state.score)),
       question: {
         word: this.state.readColourRound ? answer : decoy,
         colour: this.state.readColourRound ? decoy : answer
@@ -83,10 +82,7 @@ export default class App extends Component {
   }
 
   onNewGame () {
-    this.setState(
-      this.savedState,
-      this.setRound()
-    )
+    this.setState(this.savedState)
   }
 
   render () {
@@ -133,16 +129,16 @@ export default class App extends Component {
                     totalTime={0}
                     addTime={this.state.addTime}
                     onTimeout={() => {}}
-                      />
+                  />
                   <p className={appCss.footer}>
-                        You clicked{' '}
+                    You clicked{' '}
                     <b className={questionCss[this.state.optionClicked]}>
                       {this.state.optionClicked}
                     </b> instead of{' '}
                     <b className={questionCss[this.state.correctAnswer]}>
                       {this.state.correctAnswer}
                     </b>.
-                      </p>
+                  </p>
                 </div>)
               }
 

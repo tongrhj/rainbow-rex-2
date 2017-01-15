@@ -27,7 +27,6 @@ loaders.push({
     'sass'
   ]
 })
-
 // local css modules
 loaders.push({
   test: /\.css$/,
