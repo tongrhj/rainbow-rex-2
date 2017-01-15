@@ -1,20 +1,25 @@
 {
-  "name": "react-webpack-standard-postcss-starter-kit",
-  "version": "1.0.0",
-  "description": "React Webpack Standard Postcss Starter Kit",
+  "name": "rainbow-rex-2",
+  "version": "1.1.0",
+  "description": "Colour Picker Game for Dinosaurs",
   "main": "index.jsx",
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
     "start": "webpack-dev-server --progress --profile --colors",
-    "lint": "standard --fix app webpack.config.js || exit 0"
+    "lint": "standard --fix"
   },
   "author": "Jared Tong",
   "license": "ISC",
+  "standard": {
+    "ignore": [
+      "./public/",
+      "webpack.*",
+      "postcss.*"
+    ]
+  },
   "dependencies": {
-    "node-sass": "^3.13.0",
     "react": "15.4.1",
-    "react-dom": "15.4.1",
-    "sass-loader": "^4.0.2"
+    "react-dom": "15.4.1"
   },
   "devDependencies": {
     "babel-core": "6.20.0",
@@ -30,8 +35,10 @@
     "file-loader": "0.9.0",
     "git-scripts": "^0.2.1",
     "html-webpack-plugin": "^2.24.1",
+    "node-sass": "^3.13.0",
     "postcss-loader": "^1.2.0",
     "react-hot-loader": "^3.0.0-beta.6",
+    "sass-loader": "^4.0.2",
     "standard": "^8.6.0",
     "standard-loader": "^5.0.0",
     "style-loader": "0.13.1",
@@ -43,7 +50,8 @@
   },
   "git": {
     "scripts": {
-      "pre-push": "npm run build && ./node_modules/.bin/surge --project ./public --domain rainbowrex.surge.sh"
+      "pre-commit": "yarn lint",
+      "pre-push": "yarn build && ./node_modules/.bin/surge --project ./public --domain rainbowrex.surge.sh"
     }
   },
   "keywords": [

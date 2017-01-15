@@ -21,7 +21,7 @@ export default class App extends Component {
       optionClicked: '',
       correctAnswer: '',
       outOfTime: false, // reasons for game end: out of time, wrong answer
-      gameState: 'playing', // 'waiting', 'playing', 'ended'
+      gameState: 'playing' // 'waiting', 'playing', 'ended'
     }
 
     this.savedState = this.state
@@ -30,7 +30,7 @@ export default class App extends Component {
   }
 
   randomN (max, min = 0) {
-    return Math.floor(Math.random() * (max-min) + min)
+    return Math.floor(Math.random() * (max - min) + min)
   }
 
   componentDidMount () {
@@ -40,7 +40,7 @@ export default class App extends Component {
   setRound (previousWord) {
     // Determine Round Modes: read/see? + normal/rainbow?
     this.setState({
-      readColourRound: !(this.state.score > 5 && !this.randomN(2 + 10/this.state.score)),
+      readColourRound: !(this.state.score > 5 && !this.randomN(2 + 10 / this.state.score))
     })
 
     // Set Question
@@ -58,8 +58,9 @@ export default class App extends Component {
 
   onButtonClick (e) {
     e.preventDefault()
-    const answer = this.state.readColourRound ?
-      this.state.question.word : this.state.question.colour
+    const answer = this.state.readColourRound
+    ? this.state.question.word
+    : this.state.question.colour
     if (e.target.value === answer) {
       this.setState({
         score: this.state.score + 1,
@@ -91,62 +92,63 @@ export default class App extends Component {
   render () {
     return (
       <div key='game'>
-         { this.state.gameState == 'playing' ?
-           (<div className={appCss.body}>
-              <header>
-                <h2 className={appCss.score}>{this.state.score}</h2>
-                <Question
-                  word={this.state.question.word}
-                  colour={this.state.question.colour}
-                  readColourRound={this.state.readColourRound}
-                  addTime={this.state.addTime}
-                  onTimeout={this.onTimeout}
+        {this.state.gameState === 'playing'
+           ? (<div className={appCss.body}>
+             <header>
+               <h2 className={appCss.score}>{this.state.score}</h2>
+               <Question
+                 word={this.state.question.word}
+                 colour={this.state.question.colour}
+                 readColourRound={this.state.readColourRound}
+                 addTime={this.state.addTime}
+                 onTimeout={this.onTimeout}
                 />
-              </header>
+             </header>
 
-              <section className={buttonCss.group}>
-                {this.state.options.map(option => {
-                  return (
-                    <button
-                      value={option}
-                      key={option}
-                      onClick={e => this.onButtonClick(e)}
-                      className={buttonCss[option]}
+             <section className={buttonCss.group}>
+               {this.state.options.map(option => {
+                 return (
+                   <button
+                     value={option}
+                     key={option}
+                     onClick={e => this.onButtonClick(e)}
+                     className={buttonCss[option]}
                     />
-                  )
-                })}
-              </section>
-            </div>) : (
-              <div className={appCss.body}>
-                <h1 className={appCss.title}>Game Over</h1>
+                 )
+               })}
+             </section>
+           </div>)
+           : (<div className={appCss.body}>
+             <h1 className={appCss.title}>Game Over</h1>
 
-                <h2 className={appCss.finalScore}>Score: {this.state.score}</h2>
+             <h2 className={appCss.finalScore}>Score: {this.state.score}</h2>
 
-                {this.state.outOfTime ? <p className={appCss.footer}>You ran out of time.</p> :
-                  (<div className={appCss.smallCard}>
-                    <Question
-                      word={this.state.question.word}
-                      colour={this.state.question.colour}
-                      readColourRound={this.state.readColourRound}
-                      totalTime={0}
-                      addTime={this.state.addTime}
-                      onTimeout={() => {}}
-                    />
-                    <p className={appCss.footer}>
-                      You clicked{' '}
-                      <b className={questionCss[this.state.optionClicked]}>
-                        {this.state.optionClicked}
-                      </b> instead of{' '}
-                      <b className={questionCss[this.state.correctAnswer]}>
-                        {this.state.correctAnswer}
-                      </b>.
-                    </p>
-                  </div>)
-                }
+             {this.state.outOfTime
+                ? <p className={appCss.footer}>You ran out of time.</p>
+                : (<div className={appCss.smallCard}>
+                  <Question
+                    word={this.state.question.word}
+                    colour={this.state.question.colour}
+                    readColourRound={this.state.readColourRound}
+                    totalTime={0}
+                    addTime={this.state.addTime}
+                    onTimeout={() => {}}
+                      />
+                  <p className={appCss.footer}>
+                        You clicked{' '}
+                    <b className={questionCss[this.state.optionClicked]}>
+                      {this.state.optionClicked}
+                    </b> instead of{' '}
+                    <b className={questionCss[this.state.correctAnswer]}>
+                      {this.state.correctAnswer}
+                    </b>.
+                      </p>
+                </div>)
+              }
 
-                <button className={buttonCss.primaryButton} onClick={this.onNewGame}>Start new game</button>
-              </div>
-            ) }
+             <button className={buttonCss.primaryButton} onClick={this.onNewGame}>Start new game</button>
+           </div>)
+        }
       </div>
     )
   }
