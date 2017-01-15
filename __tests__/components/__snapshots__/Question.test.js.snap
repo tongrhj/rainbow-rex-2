@@ -1,3 +1,47 @@
+exports[`test calls onTimeout after time left runs out 1`] = `
+<section
+  className="card">
+  <span
+    className="highlightAlt">
+    see 👀
+  </span>
+  <div
+    className="countdown">
+    <div
+      className="remaining"
+      style={
+        Object {
+          "width": "90%",
+        }
+      } />
+  </div>
+  <h2
+    className="undefined question" />
+</section>
+`;
+
+exports[`test calls onTimeout after time left runs out 2`] = `
+<section
+  className="card">
+  <span
+    className="highlightAlt">
+    see 👀
+  </span>
+  <div
+    className="countdown">
+    <div
+      className="remaining"
+      style={
+        Object {
+          "width": "0%",
+        }
+      } />
+  </div>
+  <h2
+    className="undefined question" />
+</section>
+`;
+
 exports[`test changes on addTime 1`] = `
 <section
   className="card">

@@ -81,3 +81,16 @@ it('changes on colour and word', () => {
   expect(tree).toMatchSnapshot()
 })
 
+it('calls onTimeout after time left runs out', () => {
+  const onTimeout = jest.fn()
+  const component = renderer.create(
+    <Question timeleft={1000} totalTime={1000} onTimeout={onTimeout} />
+  )
+  let tree = component.toJSON()
+  expect(tree).toMatchSnapshot()
+
+  jest.runAllTimers()
+  tree = component.toJSON()
+  expect(tree).toMatchSnapshot()
+  expect(onTimeout).toBeCalled()
+})
