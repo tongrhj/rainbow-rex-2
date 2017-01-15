@@ -39,7 +39,7 @@ module.exports = {
   },
   module: {
     preLoaders: [
-      { test: /\.jsx$/,
+      { test: /\\.jsx?$/,
         loader: 'standard',
         exclude: /node_modules/
       }

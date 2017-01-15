@@ -1,0 +1,12 @@
+exports[`test renders correctly 1`] = `
+<div
+  className="countdown">
+  <div
+    className="remaining"
+    style={
+      Object {
+        "width": "0%",
+      }
+    } />
+</div>
+`;
