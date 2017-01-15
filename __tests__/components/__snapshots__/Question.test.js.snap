@@ -1,0 +1,223 @@
+exports[`test changes on addTime 1`] = `
+<section
+  className="card">
+  <span
+    className="highlightAlt">
+    see 👀
+  </span>
+  <div
+    className="countdown">
+    <div
+      className="remaining"
+      style={
+        Object {
+          "width": "99%",
+        }
+      } />
+  </div>
+  <h2
+    className="undefined question" />
+</section>
+`;
+
+exports[`test changes on addTime 2`] = `
+<section
+  className="card">
+  <span
+    className="highlightAlt">
+    see 👀
+  </span>
+  <div
+    className="countdown">
+    <div
+      className="remaining"
+      style={
+        Object {
+          "width": "98%",
+        }
+      } />
+  </div>
+  <h2
+    className="undefined question" />
+</section>
+`;
+
+exports[`test changes on addTime 3`] = `
+<section
+  className="card">
+  <span
+    className="highlightAlt">
+    see 👀
+  </span>
+  <div
+    className="countdown">
+    <div
+      className="remaining"
+      style={
+        Object {
+          "width": "98%",
+        }
+      } />
+  </div>
+  <h2
+    className="undefined question" />
+</section>
+`;
+
+exports[`test changes on colour and word 1`] = `
+<section
+  className="card">
+  <span
+    className="highlightAlt">
+    see 👀
+  </span>
+  <div
+    className="countdown">
+    <div
+      className="remaining"
+      style={
+        Object {
+          "width": "99%",
+        }
+      } />
+  </div>
+  <h2
+    className="red question">
+    green
+  </h2>
+</section>
+`;
+
+exports[`test changes on colour and word 2`] = `
+<section
+  className="card">
+  <span
+    className="highlightAlt">
+    see 👀
+  </span>
+  <div
+    className="countdown">
+    <div
+      className="remaining"
+      style={
+        Object {
+          "width": "99%",
+        }
+      } />
+  </div>
+  <h2
+    className="green question">
+    red
+  </h2>
+</section>
+`;
+
+exports[`test changes on round type 1`] = `
+<section
+  className="card">
+  <span
+    className="highlight">
+    📖 read
+  </span>
+  <div
+    className="countdown">
+    <div
+      className="remaining"
+      style={
+        Object {
+          "width": "99%",
+        }
+      } />
+  </div>
+  <h2
+    className="undefined question" />
+</section>
+`;
+
+exports[`test changes on round type 2`] = `
+<section
+  className="card">
+  <span
+    className="highlightAlt">
+    see 👀
+  </span>
+  <div
+    className="countdown">
+    <div
+      className="remaining"
+      style={
+        Object {
+          "width": "99%",
+        }
+      } />
+  </div>
+  <h2
+    className="undefined question" />
+</section>
+`;
+
+exports[`test changes on time passing 1`] = `
+<section
+  className="card">
+  <span
+    className="highlightAlt">
+    see 👀
+  </span>
+  <div
+    className="countdown">
+    <div
+      className="remaining"
+      style={
+        Object {
+          "width": "99%",
+        }
+      } />
+  </div>
+  <h2
+    className="undefined question" />
+</section>
+`;
+
+exports[`test changes on time passing 2`] = `
+<section
+  className="card">
+  <span
+    className="highlightAlt">
+    see 👀
+  </span>
+  <div
+    className="countdown">
+    <div
+      className="remaining"
+      style={
+        Object {
+          "width": "98%",
+        }
+      } />
+  </div>
+  <h2
+    className="undefined question" />
+</section>
+`;
+
+exports[`test renders correctly 1`] = `
+<section
+  className="card">
+  <span
+    className="highlightAlt">
+    see 👀
+  </span>
+  <div
+    className="countdown">
+    <div
+      className="remaining"
+      style={
+        Object {
+          "width": "99%",
+        }
+      } />
+  </div>
+  <h2
+    className="undefined question" />
+</section>
+`;

@@ -21,6 +21,7 @@
     "globals": [
       "describe",
       "test",
+      "jest",
       "context",
       "before",
       "beforeEach",

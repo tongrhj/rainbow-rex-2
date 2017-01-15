@@ -1,4 +1,43 @@
-exports[`test renders correctly 1`] = `
+exports[`test changes the width when timeLeft / totalTime changes 1`] = `
+<div
+  className="countdown">
+  <div
+    className="remaining"
+    style={
+      Object {
+        "width": "100%",
+      }
+    } />
+</div>
+`;
+
+exports[`test changes the width when timeLeft / totalTime changes 2`] = `
+<div
+  className="countdown">
+  <div
+    className="remaining"
+    style={
+      Object {
+        "width": "50%",
+      }
+    } />
+</div>
+`;
+
+exports[`test changes the width when timeLeft / totalTime changes 3`] = `
+<div
+  className="countdown">
+  <div
+    className="remaining"
+    style={
+      Object {
+        "width": "0%",
+      }
+    } />
+</div>
+`;
+
+exports[`test renders correctly with 0 width 1`] = `
 <div
   className="countdown">
   <div

@@ -57,6 +57,7 @@ class Question extends Component {
 
 Question.defaultProps = {
   totalTime: 10000,
+  timeLeft: 10000,
   addTime: 0
 }
 
