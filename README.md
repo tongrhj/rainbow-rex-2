@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tongrhj/rainbow-rex-2.svg?branch=master)](https://travis-ci.org/tongrhj/rainbow-rex-2)
+
 # Rainbow Rex 2
 Colour Picker Game with a Dinosaur
 
@@ -10,15 +12,15 @@ yarn
 * Run development server:
 
 ```
-npm start
+yarn start
 ```
 
 Open the web browser to `http://localhost:8888/`
 
-### To build the production package
+* Build for production:
 
 ```
-npm run build
+yarn build
 ```
 
 ### Tools of Choice
@@ -26,3 +28,7 @@ npm run build
 2. Webpack
 3. Postcss
 4. Standard
+
+### Elsewhere:
+1. Telegram Game Bot: https://github.com/tongrhj/rainbow-rex-telegram
+2. Rainbow Rex 1 Android App (free): https://play.google.com/store/apps/details?id=com.sotonggames.rainbowrex&hl=en

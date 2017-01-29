@@ -23,11 +23,10 @@ loaders.push({
   loaders: [
     'style?sourceMap',
     'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-    'postcss',
+    'postcss-loader',
     'sass'
   ]
 })
-
 // local css modules
 loaders.push({
   test: /\.css$/,
@@ -54,7 +53,7 @@ module.exports = {
   },
   module: {
     preLoaders: [
-      { test: /\.jsx?$/,
+      { test: /\\.jsx?$/,
         loader: 'standard',
         exclude: /node_modules/
       }
