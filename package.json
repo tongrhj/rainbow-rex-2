@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --progress --profile --colors",
     "pretest": "yarn lint",
     "test": "jest",
-    "lint": "standard --fix"
+    "lint": "standard"
   },
   "author": "Jared Tong",
   "license": "ISC",
