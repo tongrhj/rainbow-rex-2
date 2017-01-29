@@ -3,7 +3,11 @@ import buttonCss from '../../css/components/Button.scss'
 import questionCss from '../../css/components/Question.scss'
 import React, { Component } from 'react'
 
+import queryString from 'query-string'
+
 import Question from '../components/Question'
+
+const RAINBOW_REX_API = 'https://ij5cwppl87.execute-api.ap-southeast-1.amazonaws.com/prod/getRainbowRexGame'
 
 export default class App extends Component {
   constructor (props) {
@@ -57,28 +61,59 @@ export default class App extends Component {
 
   onButtonClick (e) {
     e.preventDefault()
+    const chosen = e.target.value
     const answer = this.state.readColourRound
     ? this.state.question.word
     : this.state.question.colour
-    if (e.target.value === answer) {
+    if (chosen === answer) {
       this.setState({
         score: this.state.score + 1,
         addTime: this.randomN(2000 + 5 * this.state.score, 1000)
       }, this.setRound(this.state.question.word))
     } else {
-      this.setState({
-        optionClicked: e.target.value,
-        correctAnswer: answer,
-        gameState: 'ended'
+      this.handleGameEnd('wrong', {optionClicked: chosen, correctAnswer: answer})
+    }
+  }
+
+  handleGameEnd (reason, data = {}) {
+    const parsed = queryString.parse(window.location.search)
+    if (parsed) {
+      const { msgId, chatId, userId } = parsed
+      window.fetch(RAINBOW_REX_API, {
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify({
+          userId,
+          chatId,
+          msgId,
+          score: this.state.score
+        })
       })
+      .then(data => console.log('✅  POST succeeded!', data))
+      .catch(error => console.error('❌  POST failed!', error))
+    }
+    switch (reason) {
+      case 'time':
+        this.setState({
+          gameState: 'ended',
+          outOfTime: true
+        })
+        break
+      case 'wrong':
+        const { optionClicked, correctAnswer } = data
+        this.setState({
+          optionClicked,
+          correctAnswer,
+          gameState: 'ended'
+        })
+        break
+      default:
+        return
     }
   }
 
   onTimeout () {
-    this.setState({
-      gameState: 'ended',
-      outOfTime: true
-    })
+    this.handleGameEnd('time')
   }
 
   onNewGame () {
