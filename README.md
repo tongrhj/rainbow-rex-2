@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tongrhj/rainbow-rex-2.svg?branch=master)](https://travis-ci.org/tongrhj/rainbow-rex-2)
+
 # Rainbow Rex 2
 Colour Picker Game with a Dinosaur
 
@@ -28,5 +30,5 @@ yarn build
 4. Standard
 
 ### Elsewhere:
-1. Telegram Game Bot: `https://github.com/tongrhj/rainbow-rex-telegram`
-2. Rainbow Rex 1 Android App (free): `https://play.google.com/store/apps/details?id=com.sotonggames.rainbowrex&hl=en`
+1. Telegram Game Bot: https://github.com/tongrhj/rainbow-rex-telegram
+2. Rainbow Rex 1 Android App (free): https://play.google.com/store/apps/details?id=com.sotonggames.rainbowrex&hl=en
