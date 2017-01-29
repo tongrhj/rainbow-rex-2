@@ -17,22 +17,26 @@
   border: 0;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+
   &:focus {
     outline: none;
   }
+
   &:hover {
-    opacity: .9;
+    opacity: 0.9;
   }
 }
 
 .primaryButton {
   @extend %reset-button;
+
   border-radius: 10px;
   padding: 20px 10px;
   font-size: 1rem;
   color: $primary-button-text;
   background-color: $primary-button-background;
   box-shadow: 0 8px 0 0 $primary-button-box-shadow;
+
   &:active {
     box-shadow: 0 4px $primary-button-box-shadow;
     transform: translateY(4px);
@@ -41,6 +45,7 @@
 
 %round-button {
   @extend %reset-button;
+
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -50,8 +55,10 @@
 
 .red {
   @extend %round-button;
+
   background-color: $red;
   box-shadow: 0 8px 0 0 $red-2;
+
   &:active {
     box-shadow: 0 4px $red-2;
     transform: translateY(4px);
@@ -60,8 +67,10 @@
 
 .green {
   @extend %round-button;
+
   background-color: $green;
   box-shadow: 0 8px 0 0 $green-2;
+
   &:active {
     box-shadow: 0 4px $green-2;
     transform: translateY(4px);
@@ -70,8 +79,10 @@
 
 .blue {
   @extend %round-button;
+
   background-color: $blue;
   box-shadow: 0 8px 0 0 $blue-2;
+
   &:active {
     box-shadow: 0 4px $blue-2;
     transform: translateY(4px);
@@ -80,8 +91,10 @@
 
 .yellow {
   @extend %round-button;
+
   background-color: $yellow;
   box-shadow: 0 8px 0 0 $yellow-2;
+
   &:active {
     box-shadow: 0 4px $yellow-2;
     transform: translateY(4px);

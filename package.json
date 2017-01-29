@@ -8,7 +8,9 @@
     "start": "webpack-dev-server --progress --profile --colors",
     "pretest": "yarn lint",
     "test": "jest",
-    "lint": "standard"
+    "lint": "standard",
+    "fix-lint": "standard --fix",
+    "fix-css": "stylefmt"
   },
   "author": "Jared Tong",
   "license": "ISC",
@@ -46,6 +48,7 @@
     "react-dom": "15.4.1"
   },
   "devDependencies": {
+    "autoprefixer": "^6.7.0",
     "babel-core": "6.20.0",
     "babel-jest": "^18.0.0",
     "babel-loader": "6.2.9",
@@ -71,6 +74,9 @@
     "standard": "^8.6.0",
     "standard-loader": "^5.0.0",
     "style-loader": "0.13.1",
+    "stylefmt": "^5.1.1",
+    "stylelint-config-standard": "^15.0.1",
+    "stylelint-webpack-plugin": "^0.5.1",
     "surge": "^0.18.0",
     "url-loader": "0.5.7",
     "webpack": "1.14.0",

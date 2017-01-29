@@ -3,7 +3,7 @@
 
 .card {
   position: relative;
-  opacity: .9;
+  opacity: 0.9;
   border-radius: 10px;
   backdrop-filter: blur(10px);
   background-color: $question-background;
@@ -40,10 +40,30 @@
   margin: 0;
 }
 
-.red { color: $red; }
-.green { color: $green; }
-.blue { color: $blue; }
-.yellow { color: $yellow; }
-.purple { color: $purple; }
-.pink { color: $pink; }
-.orange { color: $orange; }
+.red {
+  color: $red;
+}
+
+.green {
+  color: $green;
+}
+
+.blue {
+  color: $blue;
+}
+
+.yellow {
+  color: $yellow;
+}
+
+.purple {
+  color: $purple;
+}
+
+.pink {
+  color: $pink;
+}
+
+.orange {
+  color: $orange;
+}
