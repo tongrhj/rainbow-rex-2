@@ -80,16 +80,18 @@ export default class App extends Component {
   handleGameEnd (reason, data = {}) {
     const parsed = queryString.parse(window.location.search)
     if (parsed) {
-      const { msgId, chatId, userId } = parsed
+      let opts = {}
+      if (parsed.userId && parsed.inlineMessageId) {
+        const { userId, inlineMessageId } = parsed
+        opts = { userId, inlineMessageId }
+      } else if (parsed.msgId && parsed.chatId && parsed.userId) {
+        const { userId, chatId, msgId } = parsed
+        opts = { userId, chatId, msgId }
+      }
       window.fetch(`${RAINBOW_REX_API}/score`, {
         method: 'POST',
         mode: 'cors',
-        body: JSON.stringify({
-          userId,
-          chatId,
-          msgId,
-          score: this.state.score
-        })
+        body: JSON.stringify(Object.assign(opts, {score: this.state.score}))
       })
       .then(data => console.log('✅  POST succeeded!', data))
       .catch(error => console.error('❌  POST failed!', error))
