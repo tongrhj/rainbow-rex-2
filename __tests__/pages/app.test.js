@@ -4,14 +4,8 @@ import renderer from 'react-test-renderer'
 
 beforeEach(() => {
   jest.enableAutomock()
-  // jest.mock('../../src/js/components/Question', () => {
-  //   return jest.fn(() => {})
-  // })
+  jest.mock('TelegramGameProxy')
 })
-
-// afterEach(() => {
-//   jest.resetModules()
-// })
 
 it.skip('renders correctly', () => {
   const tree = renderer.create(

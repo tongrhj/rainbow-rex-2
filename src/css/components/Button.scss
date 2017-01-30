@@ -27,12 +27,24 @@
   }
 }
 
-.primaryButton {
-  @extend %reset-button;
-
+%standard-button {
   border-radius: 10px;
   padding: 20px 10px;
   font-size: 1rem;
+}
+
+.subtleButton {
+  @extend %reset-button;
+  @extend %standard-button;
+
+  color: $subtle-button-text;
+  background-color: $subtle-button-backgorund;
+}
+
+.primaryButton {
+  @extend %reset-button;
+  @extend %standard-button;
+
   color: $primary-button-text;
   background-color: $primary-button-background;
   box-shadow: 0 8px 0 0 $primary-button-box-shadow;

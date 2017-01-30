@@ -154,7 +154,14 @@ export default class App extends Component {
            : (<div className={appCss.body}>
              <h1 className={appCss.title}>Game Over</h1>
 
-             <h2 className={appCss.finalScore}>Score: {this.state.score}</h2>
+             <h2 className={appCss.finalScore}>
+               Score: {this.state.score}
+               <button
+                 className={buttonCss.subtleButton}
+                 onClick={() => TelegramGameProxy.shareScore()}
+                 style={{marginLeft: 15}}
+               >Share</button>
+             </h2>
 
              {this.state.outOfTime
                 ? <p className={appCss.footer}>You ran out of time.</p>

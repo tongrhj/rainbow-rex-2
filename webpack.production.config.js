@@ -72,5 +72,8 @@ module.exports = {
       title: 'Webpack App'
     }),
     new webpack.optimize.DedupePlugin()
-  ]
+  ],
+  externals: {
+    TelegramGameProxy: 'TelegramGameProxy'
+  }
 }
