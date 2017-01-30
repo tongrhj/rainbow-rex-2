@@ -7,7 +7,9 @@ import queryString from 'query-string'
 
 import Question from '../components/Question'
 
-const RAINBOW_REX_API = 'https://ij5cwppl87.execute-api.ap-southeast-1.amazonaws.com/prod/getRainbowRexGame'
+import TelegramGameProxy from 'TelegramGameProxy'
+
+const RAINBOW_REX_API = 'https://pv2scddcoi.execute-api.ap-southeast-1.amazonaws.com/prod'
 
 export default class App extends Component {
   constructor (props) {
@@ -79,7 +81,7 @@ export default class App extends Component {
     const parsed = queryString.parse(window.location.search)
     if (parsed) {
       const { msgId, chatId, userId } = parsed
-      window.fetch(RAINBOW_REX_API, {
+      window.fetch(`${RAINBOW_REX_API}/score`, {
         method: 'POST',
         mode: 'cors',
         body: JSON.stringify({
