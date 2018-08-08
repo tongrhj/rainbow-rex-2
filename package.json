@@ -73,7 +73,7 @@
     "sass-loader": "^4.0.2",
     "standard": "^8.6.0",
     "standard-loader": "^5.0.0",
-    "style-loader": "0.13.1",
+    "style-loader": "0.22.1",
     "stylefmt": "^5.1.1",
     "stylelint-config-standard": "^15.0.1",
     "stylelint-webpack-plugin": "^0.5.1",
