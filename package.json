@@ -71,7 +71,7 @@
     "react-hot-loader": "^3.0.0-beta.6",
     "react-test-renderer": "^15.4.2",
     "sass-loader": "^4.0.2",
-    "standard": "^8.6.0",
+    "standard": "^13.1.0",
     "standard-loader": "^5.0.0",
     "style-loader": "0.13.1",
     "stylefmt": "^5.1.1",
